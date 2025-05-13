@@ -6,6 +6,14 @@ import {getRecipeFromMistral } from "../ai"
 export default function body(){
     const [ingredients, setIngredients ] = React.useState([]) 
     const [recipe, setRecipe] = React.useState("")
+    const recipeSection = React.useRef(null)
+
+    React.useEffect(() => {
+        if (recipe !== "" && recipeSection.current !== null) {
+            recipeSection.current.scrollIntoView()
+        }
+    }, [recipe])
+    
     function handleSubmit(formData){
         const newIngredient = formData.get("ingredient")
         setIngredients(prevIngredient => [...prevIngredient, newIngredient])
@@ -29,7 +37,7 @@ export default function body(){
             {ingredients.length > 0 &&
             <Ingredients ingredients ={ingredients} toggleShown={toggleShown}/>
 }
-        {recipe && <ClaudeRecipe recipe={recipe}/>
+        {recipe && <ClaudeRecipe recipe={recipe} ref={recipeSection}/>
         }
 
         </main>
