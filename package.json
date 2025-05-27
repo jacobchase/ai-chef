@@ -1,6 +1,5 @@
-
 {
-  "homepage":"https://jacobchase.github.io/ai-chef",
+  "homepage": "https://jacobchase.github.io/ai-chef",
   "name": "ai-chef",
   "private": true,
   "version": "0.0.0",
@@ -10,8 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.50.3",
